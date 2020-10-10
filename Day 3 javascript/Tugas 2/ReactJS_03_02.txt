@@ -1,0 +1,16 @@
+Login
+user : user
+pass : password
+<<Tombol OK>>
+
+Klik <<Tombol 1>>
+
+Perkalian
+2 edit box
+
+Klik <<Tombol 2>> 
+
+Pembagian
+2 edit box
+
+Javascriptnya menggunakan function dan ada diluar file html

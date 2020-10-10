@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HRD</title>
+    <script src="main.js" defer></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height:100vh">
+            <div class="col-4" style="display:block">
+                <div class="card">
+                    <div class="card-title text-center p-4">
+                        <h2>Login HRD</h2>
+                    </div>
+                    <div class="card-body">
+                        <form autocomplete="off" name="loginData">
+                            <div class="form-group">
+                                <label for="usernameLogin" name="usernameLogin">Username</label>
+                                <input type="text" class="form-control" id="usernameLogin" placeholder="Masukan Username">
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordLogin" name="passwordLogin">Password</label>
+                                <input type="password" class="form-control" id="passwordLogin" placeholder="Masukan Password">
+                            </div>
+                            <div class="text-right mt-4">
+                                <button type="button" id="sendlogin" onclick="loginForm()" class="btn btn-primary btn-block">login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12" style="display:block">
+                <div class="card" style="height:60vh">
+
+                    <div class="card-header">
+                        <ul class="nav nav-pills card-header-pills">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Data Karyawan</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">Link</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <table class="table table-bordered" id="tambah">
+                        <tr>
+                            <td>No</td>
+                            <td>Username</td>
+                            <td>Alamat</td>
+                            <td>Role</td>
+                            <td>Action</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" class="text-center">Data Tidak Ditemukan</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

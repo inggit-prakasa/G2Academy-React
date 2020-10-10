@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="m-auto w-50" >
+        <div class="container" id="login">
+            <h3 class="text-center">Login</h3>
+            <form name="loginData" class="x-5" id="formLogin">
+                <div class="form-group">
+                    <label for="usernameLogin" name="usernameLogin">Username</label>
+                    <input type="text" class="form-control" id="usernameLogin" placeholder="Masukan Username">
+                </div>
+                <div class="form-group">
+                    <label for="passwordLogin" name="passwordLogin">Password</label>
+                    <input type="password" class="form-control" id="passwordLogin" placeholder="Masukan Password">
+                </div>
+                <br>
+                <input type="button" id="loginForm" onclick="loginForm123()" class="btn btn-primary" value="Login">
+<!--                <input type="button" id="registrationForm" onclick="document.getElementById('register').style.display = 'block'; document.getElementById('login').style.display = 'none'; document.getElementById('tableData').style.display = 'block';" class="btn btn-info" value="Registrasi">-->
+            </form>
+        </div>
+        <div class="container" id="register" style="display:none">
+            <h3 class="text-center" id="registrasi">Registrasi</h3>
+            <form name="biodata" class="x-5" id="form">
+                <div class="form-group">
+                    <label for="username" name="username">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Masukan Username">
+                </div>
+                <div class="form-group">
+                    <label for="password" name="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Masukan Password">
+                </div>
+                <div class="form-group">
+                    <label for="address" name="address">Alamat</label>
+                    <input type="text" class="form-control" id="address" placeholder="Masukan Alamat" >
+                </div>
+                <div class="form-group">
+                    <label for="worker" name="worker">Pekerjaan</label>
+                    <input type="text" class="form-control" id="worker" placeholder="Masukan Pekerjaan" >
+                </div>
+                <div class="form-group" id="hobbies">
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select class="form-control" id="role">
+                            <option value="HRD">HRD</option>
+                            <option value="KARYAWAN">Karyawan</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                </div>
+                <br>
+                <input type="button" id="backlogin" onclick="document.getElementById('register').style.display = 'none'; document.getElementById('login').style.display = 'block';" class="btn btn-info" value="Back">
+                <input type="button" id="backtable" onclick="document.getElementById('register').style.display = 'none'; document.getElementById('tableData').style.display = 'block';" class="btn btn-info" value="Back">
+                <input type="button" id="saveRow" onclick="saveform()" class="btn btn-primary" value="Registrasi">
+                <input type="button" id="editRow" onclick="editform()" class="btn btn-primary" value="Update" style="display:none">
+            </form>
+            <br>
+        </div>
+
+        <div id="tableData" class="container mt-10" style="display:none">
+            <input type="button" onclick="document.getElementById('login').style.display = 'block';document.getElementById('register').style.display = 'none'; document.getElementById('tableData').style.display = 'none'; document.getElementById('registrasi').innerText = 'Add User'; document.getElementById('saveRow').value = 'Add'; document.getElementById('backlogin').style.display = 'none'; document.getElementById('backtable').style.display = 'inline'" class="btn btn-danger" value="Logout">
+            <input type="button" onclick="document.getElementById('register').style.display = 'block'; document.getElementById('tableData').style.display = 'none'; document.getElementById('registrasi').innerText = 'Add User'; document.getElementById('saveRow').value = 'Add'; document.getElementById('backlogin').style.display = 'none'; document.getElementById('backtable').style.display = 'inline'" class="btn btn-primary" value="Add User">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-end">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+            <table class="table table-bordered" id="tambah">
+                <tr>
+                    <td>No</td>
+                    <td>Username</td>
+                    <td>Alamat</td>
+                    <td>Pekerjaan</td>
+                    <td>Role</td>
+                    <td>Action</td>
+                </tr>
+            </table>
+        </div>
+
+
+    </div>
+    <div class="col-12 m-auto w-75" style="display:none" id="biodataKaryawan" style="display:none">
+        <div class="card m-2" style="height:60vh">
+            <div class="card-header">
+                <h3>Profile</h3>
+            </div>
+            <div class="card-body">
+                <form autocomplete="off" name="loginDataKaryawan">
+                    <div class="form-group">
+                        <label for="biodataText" name="biodataText">Biodata</label>
+                        <input type="text" class="form-control" id="biodataText" placeholder="" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="pengalamanKerja" name="pengalamanKerja">Pengalaman Kerja</label>
+                        <input type="text" class="form-control" id="pengalamanKerja" placeholder="" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="keahlian" name="keahlian">Password</label>
+                        <input type="text" class="form-control" id="keahlian" placeholder="" disabled>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
